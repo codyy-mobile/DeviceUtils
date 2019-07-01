@@ -482,6 +482,12 @@ class DeviceUtils {
             activity.windowManager.defaultDisplay.getMetrics(metric)
             return (metric.heightPixels + getNavigationBarHeight(activity)).toString()     // 屏幕高度（像素）
         }
+        @JvmStatic
+        fun getScreenDensity(activity: Activity): String {
+            val metric = DisplayMetrics()
+            activity.windowManager.defaultDisplay.getMetrics(metric)
+            return (metric.density).toString()
+        }
 
         /**
          * 底部导航栏是否显示

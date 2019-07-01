@@ -23,7 +23,7 @@ CPU位数:${DeviceUtils.getCpuArchitectureType()}
 cpu指令集:${DeviceUtils.abis}
 系统版本:${DeviceUtils.sdkVersionName}
 系统版本值:${DeviceUtils.sdkVersionCode}
-分辨率:${DeviceUtils.getScreenWidth(this)}*${DeviceUtils.getScreenHeight(this)}
+分辨率:${DeviceUtils.getScreenWidth(this)}*${DeviceUtils.getScreenHeight(this)} ${DeviceUtils.getScreenDensity(this)}x
 运营商:${DeviceUtils.getOperators(this)}
 
 ID:${DeviceUtils.id}
