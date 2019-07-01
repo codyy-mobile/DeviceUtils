@@ -12,10 +12,10 @@ allprojects {
 ---
 ```
 dependencies {
-	        implementation 'com.github.CodyyAndroid:DeviceUtils:0.0.2'
 	}
 ```
----
+---	        implementation 'com.github.CodyyAndroid:DeviceUtils:0.0.3'
+
 
 
 | 名称 | API | 备注 | 示例 |
