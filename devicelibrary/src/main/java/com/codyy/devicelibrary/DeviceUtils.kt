@@ -264,10 +264,17 @@ class DeviceUtils {
                     activity,
                     Manifest.permission.READ_PHONE_STATE
                 )
-            ) (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).imei
-            } else (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId) else ""
+            ) {
+                (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).imei
+                } else {
+                    (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId ?: ""
+                })
+            } else {
+                ""
+            }
         }
+
         @JvmStatic
         fun getLine1Number(activity: Activity): String {
             return if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
@@ -276,8 +283,9 @@ class DeviceUtils {
                 )
             ) (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).line1Number
-            } else (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId) else ""
+            } else (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId ?: "") else ""
         }
+
         @JvmStatic
         fun getAndroidId(activity: Activity): String {
             return if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
@@ -482,6 +490,7 @@ class DeviceUtils {
             activity.windowManager.defaultDisplay.getMetrics(metric)
             return (metric.heightPixels + getNavigationBarHeight(activity)).toString()     // 屏幕高度（像素）
         }
+
         @JvmStatic
         fun getScreenDensity(activity: Activity): String {
             val metric = DisplayMetrics()

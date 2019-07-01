@@ -3,6 +3,7 @@ package com.codyy.myapplication
 import android.Manifest
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.codyy.devicelibrary.DeviceUtils
 import com.codyy.rx.permissions.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,6 +12,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        RxPermissions(supportFragmentManager).request(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_EXTERNAL_STORAGE)
+            .subscribe()
+
         RxPermissions(supportFragmentManager).request(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_EXTERNAL_STORAGE).subscribe { granted ->
             run {
                 if (granted) {
