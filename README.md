@@ -1,4 +1,4 @@
-# DeviceUtils[![](https://jitpack.io/v/CodyyAndroid/DeviceUtils.svg)](https://jitpack.io/#CodyyAndroid/DeviceUtils)
+# DeviceUtils[![](https://jitpack.io/v/codyy-mobile/DeviceUtils.svg)](https://jitpack.io/#codyy-mobile/DeviceUtils)
 ---
 
 ```
